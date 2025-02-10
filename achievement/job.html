@@ -47,161 +47,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>社会兼职</title>
-    <!-- 引入Font Awesome图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        /* 全局样式 */
+        /* 弹窗样式 */
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+/*             background-color: #e6e6fa; /* 浅紫色背景 */ */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
+            margin: 0;
         }
-
-        /* 弹窗容器 */
-        .popup-container {
-            width: 60%;
-            height: 60%;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        .modal-box {
+            width: 80%;
+            height: 80%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
             position: relative;
-            animation: fadeIn 0.5s ease-in-out;
         }
-
-        /* 弹窗头部 */
-        .popup-header {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
-
-        /* 弹窗内容 */
-        .popup-content {
-            padding: 20px;
-            line-height: 1.8;
-            text-align: left;
-        }
-
-        /* 图标样式 */
-        .popup-content i {
-            font-size: 48px;
-            color: #4CAF50;
-            margin-bottom: 20px;
-            display: block;
-            text-align: center;
-        }
-
-        /* 标题样式 */
-        .popup-content h3 {
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
             font-size: 24px;
-            margin-bottom: 15px;
-            color: #333;
-            text-align: center;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
         }
-
-        /* 文本样式 */
-        .popup-content p {
-            font-size: 16px;
-            color: #555;
+        .close-btn:hover {
+            color: #000;
         }
-
-        /* 链接样式 */
-        .popup-content a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .popup-content a:hover {
-            text-decoration: underline;
-        }
-
-        /* 底部按钮 */
-        .popup-footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-        }
-
-        .popup-footer a {
-            color: #fff;
-            background-color: #4CAF50;
+        /* 美化 Back to Home Page 按钮 */
+        .call-to-action a {
+            display: inline-block;
+            margin-top: 20px;
             padding: 10px 20px;
-            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-
-        .popup-footer a:hover {
-            background-color: #45a049;
+        .call-to-action a:hover {
+            background-color: #0056b3;
         }
-
-        /* 动画效果 */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* 响应式设计 */
+        /* 响应式调整 */
         @media (max-width: 768px) {
-            .popup-container {
-                width: 90%;
-                height: 80%;
+            .modal-box {
+                width: 95%;
+                height: 90%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 弹窗 -->
-    <div class="popup-container">
-        <div class="popup-header">
-            <h2>社会兼职</h2>
-        </div>
-        <div class="popup-content">
-            <i class="fa fa-diamond"></i>
-            <h3>ACADEMIC ADJUNCTS：</h3>
-            <p>
-                <strong>MEMBERS OF EDITORIAL BOARDS:</strong><br><br>
-                <a href="https://onlinelibrary.wiley.com/journal/15404040" target="_blank">Population, Space and Place</a><br><br>
-                <a href="https://www.springer.com/journal/12061" target="_blank">Spatial Demography</a><br><br>
-                <a href="https://www.journals.elsevier.com/geography-and-sustainability" target="_blank">Geography and Sustainability</a><br><br>
-                <a href="https://www.springer.com/journal/12061" target="_blank">Applied Spatial Analysis and Policy</a><br><br>
-                <a href="https://www.tandfonline.com/toc/tsde20/current" target="_blank">Spatial Demography and Population Governance</a><br><br>
-                <a href="https://journals.sagepub.com/home/inq" target="_blank">INQUIRY: The Journal of Health Care Organization, Provision, and Financing</a><br><br>
-                <a href="http://www.rddl.com.cn/" target="_blank">Tropical Geography (热带地理)</a><br><br>
-                <a href="http://www.dlgeo.cn/" target="_blank">Geography and Geo-Information Science (地理与地理信息科学)</a><br><br>
-                <a href="http://www.areal-research.com/" target="_blank">Areal Research and Development (地域研究与开发)</a><br><br>
-                <strong>MEMBERSHIP OF PROFESSIONAL ASSOCIATIONS:</strong><br><br>
-                <a href="https://www.aag.org/" target="_blank">American Association of Geographers (AAG)</a><br><br>
-                <a href="http://www.gsc.org.cn/" target="_blank">Geographical Society of China (GSC)</a><br><br>
-                <a href="https://www.populationassociation.org/" target="_blank">Population Association of America (PAA)</a><br><br>
-                <a href="https://www.regionalstudies.org/" target="_blank">Regional Studies Association (RSA)</a><br><br>
-                <a href="http://www.csas-cn.org/" target="_blank">China Society for African Studies</a><br><br>
-            </p>
-        </div>
-        <div class="popup-footer">
-            <a href="https://hengyu-gu.github.io#portfolio" class="portfolio-box">Back to home page</a>
-        </div>
+    <!-- 弹窗容器 -->
+    <div class="modal-box">
+        <!-- 关闭按钮 -->
+        <span class="close-btn">&times;</span>
+
+        <!-- 主体内容 -->
+        <section id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="service-box">
+                            <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                            <h3>ACADEMIC ADJUNCTS：</h3>
+                            <p class="text-muted" align="left">
+                                MEMBERS OF EDITORIAL BOARDS: <br><br>
+                                Population, Space and Place <br><br>
+                                Spatial Demography<br><br>
+                                Geography and Sustainability<br><br>
+                                Applied Spatial Analysis and Policy<br><br>
+                                Spatial Demography and Population Governance<br><br>
+                                INQUIRY: The Journal of Health Care Organization, Provision, and Financing<br><br>
+                                Tropical Geography (热带地理) <br><br>
+                                Geography and Geo-Information Science (地理与地理信息科学) <br><br>
+                                Areal Research and Development (地域研究与开发) <br><br>
+                                MEMBERSHIP OF PROFESSIONAL ASSOCIATIONS: <br><br>
+                                American Association of Geographers (AAG) <br><br>
+                                Geographical Society of China (GSC) <br><br>
+                                Population Association of America (PAA) <br><br>
+                                Regional Studies Association (RSA) <br><br>
+                                China Society for African Studies<br><br>                      
+                            </p>
+                            <aside class="bg-dark">
+                                <div class="container text-center">
+                                    <div class="call-to-action">
+                                        <a href="https://hengyu-gu.github.io#portfolio">Back to home page</a>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <!-- JavaScript 控制关闭按钮 -->
+    <script>
+        // 获取关闭按钮和弹窗容器
+        const closeBtn = document.querySelector('.close-btn');
+        const modalBox = document.querySelector('.modal-box');
+
+        // 点击关闭按钮时隐藏弹窗
+        closeBtn.addEventListener('click', () => {
+            modalBox.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
