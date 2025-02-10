@@ -55,33 +55,57 @@
             background-color: #f8f9fa; /* 浅灰色背景 */
             margin: 0;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
 
-        /* 弹窗样式 */
-        .modal-box {
-            width: 80%;
-            height: 80%;
-            max-width: 1200px; /* 限制最大宽度 */
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            overflow-y: auto;
+        /* 主体内容样式 */
+        .service-box {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
             position: relative;
         }
 
-        /* 美化 Back to Home Page 按钮 */
+        /* 关闭按钮 */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-btn:hover {
+            color: #000;
+        }
+
+        /* 图标样式 */
+        i.fa-diamond {
+            color: #007bff; /* 蓝色图标 */
+        }
+
+        /* 标题样式 */
+        h3 {
+            margin-top: 10px;
+        }
+
+        /* 段落样式 */
+        p.text-muted {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #6c757d; /* 默认灰色文字 */
+        }
+
+        /* 按钮样式 */
         .call-to-action a {
             display: inline-block;
             margin-top: 20px;
-            padding: 12px 24px;
+            padding: 10px 20px;
             background-color: #007bff; /* 蓝色背景 */
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 5px;
             font-size: 16px;
             transition: background-color 0.3s, transform 0.3s;
         }
@@ -90,73 +114,75 @@
             transform: scale(1.05); /* 悬停时放大效果 */
         }
 
-        /* 内容区域的美化 */
-        .service-box {
-            padding: 20px;
-        }
-        .text-muted {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #6c757d; /* 更柔和的灰色 */
-        }
-        h3 {
-            color: #343a40; /* 深灰色标题 */
-        }
-
         /* 响应式调整 */
         @media (max-width: 768px) {
-            .modal-box {
-                width: 95%;
-                height: 90%;
+            .service-box {
+                padding: 15px;
             }
             .call-to-action a {
                 font-size: 14px;
-                padding: 10px 20px;
+                padding: 8px 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 弹窗容器 -->
-    <div class="modal-box">
-        <!-- 主体内容 -->
-        <section id="services">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="service-box">
-                            <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
-                            <h3>ACADEMIC ADJUNCTS：</h3>
-                            <p class="text-muted" align="left">
-                                MEMBERS OF EDITORIAL BOARDS: <br><br>
-                                Population, Space and Place <br><br>
-                                Spatial Demography<br><br>
-                                Geography and Sustainability<br><br>
-                                Applied Spatial Analysis and Policy<br><br>
-                                Spatial Demography and Population Governance<br><br>
-                                INQUIRY: The Journal of Health Care Organization, Provision, and Financing<br><br>
-                                Tropical Geography (热带地理) <br><br>
-                                Geography and Geo-Information Science (地理与地理信息科学) <br><br>
-                                Areal Research and Development (地域研究与开发) <br><br>
-                                MEMBERSHIP OF PROFESSIONAL ASSOCIATIONS: <br><br>
-                                American Association of Geographers (AAG) <br><br>
-                                Geographical Society of China (GSC) <br><br>
-                                Population Association of America (PAA) <br><br>
-                                Regional Studies Association (RSA) <br><br>
-                                China Society for African Studies<br><br>                      
-                            </p>
-                            <aside class="bg-dark">
-                                <div class="container text-center">
-                                    <div class="call-to-action">
-                                        <a href="https://hengyu-gu.github.io#portfolio" class="portfolio-box">Back to home page</a>
-                                    </div>
+    <!-- 主体内容 -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <!-- 关闭按钮 -->
+                        <span class="close-btn">&times;</span>
+
+                        <!-- 图标和标题 -->
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>ACADEMIC ADJUNCTS：</h3>
+
+                        <!-- 内容 -->
+                        <p class="text-muted" align="left">
+                            MEMBERS OF EDITORIAL BOARDS: <br><br>
+                            Population, Space and Place <br><br>
+                            Spatial Demography<br><br>
+                            Geography and Sustainability<br><br>
+                            Applied Spatial Analysis and Policy<br><br>
+                            Spatial Demography and Population Governance<br><br>
+                            INQUIRY: The Journal of Health Care Organization, Provision, and Financing<br><br>
+                            Tropical Geography (热带地理) <br><br>
+                            Geography and Geo-Information Science (地理与地理信息科学) <br><br>
+                            Areal Research and Development (地域研究与开发) <br><br>
+                            MEMBERSHIP OF PROFESSIONAL ASSOCIATIONS: <br><br>
+                            American Association of Geographers (AAG) <br><br>
+                            Geographical Society of China (GSC) <br><br>
+                            Population Association of America (PAA) <br><br>
+                            Regional Studies Association (RSA) <br><br>
+                            China Society for African Studies<br><br>                      
+                        </p>
+
+                        <!-- 返回首页按钮 -->
+                        <aside class="bg-dark">
+                            <div class="container text-center">
+                                <div class="call-to-action">
+                                    <a href="https://hengyu-gu.github.io#portfolio" class="portfolio-box">Back to home page</a>
                                 </div>
-                            </aside>
-                        </div>
+                            </div>
+                        </aside>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- JavaScript 控制关闭按钮 -->
+    <script>
+        // 获取关闭按钮
+        const closeBtn = document.querySelector('.close-btn');
+
+        // 点击关闭按钮时返回首页
+        closeBtn.addEventListener('click', () => {
+            window.location.href = "https://hengyu-gu.github.io#portfolio";
+        });
+    </script>
 </body>
 </html>
